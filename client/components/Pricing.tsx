@@ -128,8 +128,6 @@ export default function Pricing() {
                   <span className="text-white/70 text-sm">/ {plan.unit}</span>
                 </div>
               </div>
-
-              {/* Body */}
               <div className="bg-white p-7">
                 <p className="text-navy-500/80 text-sm mb-6 leading-relaxed">
                   {plan.description}

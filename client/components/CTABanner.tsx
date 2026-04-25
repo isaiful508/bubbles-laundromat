@@ -6,7 +6,6 @@ import { Phone, ArrowRight } from "lucide-react";
 export default function CTABanner() {
   return (
     <section className="py-20 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-cyan-500 to-indigo-600" />
       <div className="absolute inset-0 opacity-20"
         style={{
@@ -14,7 +13,6 @@ export default function CTABanner() {
           backgroundSize: "24px 24px",
         }}
       />
-      {/* Animated blobs */}
       <motion.div
         className="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-white/10"
         animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 0] }}

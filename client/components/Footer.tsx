@@ -19,20 +19,14 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden">
-      {/* Background (match hero) */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#F8FAFF] via-[#EEF4FF] to-[#E6EEFF]" />
 
-      {/* Top border glow */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-50" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          
-          {/* Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">         
           <div className="lg:col-span-2">
-            {/* Logo */}
             <div className="relative h-11 w-[162px] sm:h-12 sm:w-[172px] mb-5">
               <Image
                 src="/bubbles_logo.svg"
@@ -49,7 +43,6 @@ export default function Footer() {
               service, and a welcoming atmosphere at 815 W Britton Rd.
             </p>
 
-            {/* Socials */}
             <div className="flex gap-3">
               {[Facebook, Instagram, Twitter].map((Icon, i) => (
                 <a
@@ -63,7 +56,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h4 className="text-gray-900 font-semibold text-sm tracking-wider uppercase mb-5">
               Quick Links
@@ -83,7 +75,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className="text-gray-900 font-semibold text-sm tracking-wider uppercase mb-5">
               Contact
@@ -119,7 +110,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-400 text-xs">
             © {new Date().getFullYear()} Bubbles Laundromat. All rights reserved.

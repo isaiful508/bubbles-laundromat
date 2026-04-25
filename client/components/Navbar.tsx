@@ -47,7 +47,6 @@ export default function Navbar() {
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
           <motion.a
             href="/"
             className="flex items-center group"
@@ -66,7 +65,6 @@ export default function Navbar() {
             </div>
           </motion.a>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
@@ -84,7 +82,6 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <motion.a
               href="tel:+14057488990"
@@ -97,7 +94,6 @@ export default function Navbar() {
             </motion.a>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden relative w-10 h-10 flex items-center justify-center text-navy-800 rounded-full glass transition-all duration-200"

@@ -88,14 +88,12 @@ export default function Services() {
 
   return (
     <section id="services" className="py-24 lg:py-32 bg-[#F8FFFE] relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04] rounded-full"
         style={{ background: "radial-gradient(circle, #06B6D4, transparent 70%)", transform: "translate(30%, -30%)" }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.03] rounded-full"
         style={{ background: "radial-gradient(circle, #6366F1, transparent 70%)", transform: "translate(-30%, 30%)" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -115,7 +113,6 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Cards Grid */}
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -132,25 +129,21 @@ export default function Services() {
                 className="relative group bg-white rounded-3xl p-8 card-hover border border-gray-100 overflow-hidden"
                 style={{ boxShadow: "0 4px 30px rgba(10,22,40,0.06)" }}
               >
-                {/* Glow on hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
                   style={{ background: `radial-gradient(circle at 50% 0%, ${service.glow} 0%, transparent 60%)` }}
                 />
 
-                {/* Badge */}
                 {service.badge && (
                   <span className="absolute top-4 right-4 px-3 py-1 bg-cyan-500 text-white text-xs font-bold rounded-full">
                     {service.badge}
                   </span>
                 )}
 
-                {/* Icon */}
                 <div className={`relative w-14 h-14 bg-gradient-to-br ${service.color} rounded-2xl flex items-center justify-center mb-5 shadow-lg`}>
                   <Icon className="w-7 h-7 text-white" />
                 </div>
 
-                {/* Content */}
                 <h3 className="font-display text-xl text-navy-800 mb-3 group-hover:text-cyan-600 transition-colors">
                   {service.title}
                 </h3>
@@ -158,7 +151,6 @@ export default function Services() {
                   {service.description}
                 </p>
 
-                {/* Features */}
                 <ul className="space-y-2">
                   {service.features.map((f, fi) => (
                     <li key={fi} className="flex items-center gap-2 text-xs text-navy-600 font-medium">
@@ -168,7 +160,6 @@ export default function Services() {
                   ))}
                 </ul>
 
-                {/* Bottom border accent */}
                 <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
               </motion.div>
             );

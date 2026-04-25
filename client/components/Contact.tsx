@@ -23,7 +23,6 @@ export default function Contact() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    // Strip any potential XSS immediately
     const sanitized = value.replace(/<[^>]*>/g, "");
     setValues((prev) => ({ ...prev, [name]: sanitized }));
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -36,20 +35,17 @@ export default function Contact() {
       setErrors(errs);
       return;
     }
-    // Rate limiting
     if (!rateLimitCheck("contact_form", 3, 60000)) {
       setErrors({ _form: "Too many submissions. Please wait a minute and try again." });
       return;
     }
     setFormState("submitting");
-    // Sanitize before sending
     const safe = {
       name: sanitizeInput(values.name),
       email: sanitizeInput(values.email),
       phone: sanitizeInput(values.phone),
       message: sanitizeInput(values.message),
     };
-    // Simulate API call (replace with real endpoint)
     await new Promise<void>((res) => setTimeout(res, 1800));
     console.log("Form submitted:", safe);
     setFormState("success");
@@ -83,7 +79,6 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -143,7 +138,6 @@ export default function Contact() {
               </motion.a>
             ))}
 
-            {/* Big CTA */}
             <motion.a
               href="tel:+14057488990"
               className="flex items-center justify-center gap-3 w-full py-5 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-2xl text-white font-bold text-lg shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-200"
@@ -155,7 +149,6 @@ export default function Contact() {
             </motion.a>
           </motion.div>
 
-          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

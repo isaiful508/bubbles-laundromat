@@ -9,6 +9,7 @@ import CTABanner from "@/components/CTABanner";
 import MapSection from "@/components/MapSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <MapSection />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }

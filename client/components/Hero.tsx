@@ -279,7 +279,6 @@ export default function Hero() {
                 <X className="h-4 w-4" />
               </button>
 
-              {/* 16:9 YouTube embed */}
               <div className="aspect-video w-full bg-black">
                 <div className="aspect-video w-full bg-black">
                   <iframe

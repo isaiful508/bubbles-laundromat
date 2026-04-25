@@ -38,7 +38,6 @@ export default function MapSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8 items-start">
-          {/* Info Panel */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -46,7 +45,6 @@ export default function MapSection() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-2 space-y-5"
           >
-            {/* Address Card */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 bg-cyan-500/10 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -71,7 +69,6 @@ export default function MapSection() {
               </div>
             </div>
 
-            {/* Phone Card */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-start gap-4">
                 <div className="w-11 h-11 bg-indigo-500/10 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -89,7 +86,6 @@ export default function MapSection() {
               </div>
             </div>
 
-            {/* Hours Card */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-11 h-11 bg-emerald-500/10 rounded-2xl flex items-center justify-center">
@@ -111,7 +107,6 @@ export default function MapSection() {
               </div>
             </div>
 
-            {/* Amenities */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
               <h3 className="font-semibold text-navy-800 mb-4">Amenities</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -125,7 +120,6 @@ export default function MapSection() {
             </div>
           </motion.div>
 
-          {/* Map */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}

@@ -35,9 +35,7 @@ export default function VideoSection() {
 
   return (
     <section ref={ref} className="relative h-[70vh] min-h-[500px] overflow-hidden">
-      {/* Parallax Video / Fallback Background */}
       <motion.div className="absolute inset-0 scale-110" style={{ y }}>
-        {/* Video element - uses a public laundry video or fallback gradient */}
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
@@ -47,11 +45,9 @@ export default function VideoSection() {
           playsInline
           poster="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=1920&q=80"
         >
-          {/* If video fails, poster image shows */}
           <source src="/laundry-bg.mp4" type="video/mp4" />
         </video>
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-800/70 via-navy-800/50 to-navy-800/80" />
         <div className="absolute inset-0"
           style={{
@@ -60,7 +56,6 @@ export default function VideoSection() {
         />
       </motion.div>
 
-      {/* Content */}
       <motion.div
         style={{ opacity }}
         className="relative z-10 h-full flex items-center justify-center px-4"
@@ -106,7 +101,6 @@ export default function VideoSection() {
         </div>
       </motion.div>
 
-      {/* Video Controls */}
       <div className="absolute bottom-6 right-6 z-20 flex items-center gap-3">
         <button
           onClick={toggleMute}
