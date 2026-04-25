@@ -5,7 +5,9 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 
+// @ts-ignore
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/pagination";
 
 const testimonials = [
@@ -48,12 +50,10 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background (match your hero style) */}
+    <section className="py-24 lg:py-32 relative overflow-hidden">=
       <div className="absolute inset-0 bg-gradient-to-br from-[#F8FAFF] via-[#EEF4FF] to-[#E6EEFF]" />
 
       <div className="relative max-w-7xl mx-auto px-4">
-        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,8 +76,6 @@ export default function Testimonials() {
             </span>
           </div>
         </motion.div>
-
-        {/* Swiper Carousel */}
         <Swiper
           modules={[Autoplay, Pagination]}
           spaceBetween={20}
@@ -90,17 +88,17 @@ export default function Testimonials() {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
+           style={{ paddingBottom: "40px" }}
+          className="!items-stretch"
         >
           {testimonials.map((t, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} style={{ height: "auto" }}>
               <motion.div
                 whileHover={{ y: -5 }}
-                className="p-6 rounded-3xl bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl h-full"
+                className="p-6 rounded-xl bg-white/70 backdrop-blur-xl border border-white/40 shadow-xl h-full"
               >
-                {/* Quote */}
                 <Quote className="w-8 h-8 text-blue-200 mb-4" />
 
-                {/* Stars */}
                 <div className="flex gap-1 mb-3">
                   {[...Array(t.rating)].map((_, si) => (
                     <Star
@@ -110,12 +108,10 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                {/* Text */}
-                <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+                <p className="text-gray-600 text-sm mb-5 leading-relaxed flex-grow">
                   “{t.text}”
                 </p>
 
-                {/* User */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold">
                     {t.initials}
