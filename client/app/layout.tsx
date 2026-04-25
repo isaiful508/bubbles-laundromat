@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bubbleslaundromat.com"),
   title: "Bubbles Laundromat | Professional Laundry Services in Oklahoma City",
   description:
     "Bubbles Laundromat offers premium coin-operated and full-service laundry in Oklahoma City, OK. Clean machines, comfortable atmosphere, open 7 days. Call (405) 748-8990.",
@@ -30,6 +31,13 @@ export const metadata: Metadata = {
     title: "Bubbles Laundromat | Oklahoma City",
     description: "Premium laundry services in OKC. Coin-operated & full-service wash and fold.",
   },
+  icons: {
+    icon: [
+      { url: "/bubbles_logo_without_text.svg", type: "image/svg+xml" },
+    ],
+    shortcut: ["/bubbles_logo_without_text.svg"],
+    apple: ["/bubbles_logo_without_text.svg"],
+  },
   alternates: { canonical: "https://bubbleslaundromat.com" },
   other: {
     "geo.region": "US-OK",
@@ -50,6 +58,7 @@ const structuredData = {
   "@type": "LocalBusiness",
   "@id": "https://bubbleslaundromat.com",
   name: "Bubbles Laundromat",
+  logo: "https://bubbleslaundromat.com/bubbles_logo_without_text.svg",
   image: "https://bubbleslaundromat.com/og-image.jpg",
   telephone: "+1-405-748-8990",
   address: {

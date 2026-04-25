@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, Sparkles } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -49,22 +50,19 @@ export default function Navbar() {
           {/* Logo */}
           <motion.a
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             whileHover={{ scale: 1.02 }}
+            aria-label="Bubbles Laundromat home"
           >
-            <div className="relative w-10 h-10">
-              <div className="absolute inset-0 bg-cyan-500 rounded-full opacity-20 group-hover:opacity-40 transition-opacity animate-pulse-slow" />
-              <div className="relative w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center shadow-lg">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-            </div>
-            <div>
-              <span className="font-display text-xl text-navy-800 leading-none block">
-                Bubbles
-              </span>
-              <span className="text-xs font-semibold text-cyan-500 tracking-widest uppercase leading-none">
-                Laundromat
-              </span>
+            <div className="relative h-11 w-[162px] sm:h-12 sm:w-[172px]">
+              <Image
+                src="/bubbles_logo.svg"
+                alt="Bubbles Laundromat"
+                fill
+                priority
+                sizes="172px"
+                className="object-contain object-left"
+              />
             </div>
           </motion.a>
 
