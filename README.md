@@ -1,5 +1,25 @@
 # 🫧 Bubbles Laundromat Website
 
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Visit%20Website-06B6D4?style=for-the-badge&logo=vercel&logoColor=white)](https://bubbles-laundromat-three.vercel.app/)
+&nbsp;
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bubbles-laundromat-three.vercel.app/)
+&nbsp;
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+
+<br/>
+
+### 🌐 [https://bubbles-laundromat-three.vercel.app/](https://bubbles-laundromat-three.vercel.app/)
+
+<br/>
+
+> **A modern, high-converting laundromat website built with Next.js, Tailwind CSS & Framer Motion.**
+
+</div>
+
+---
+
 ## 🎯 Project Goal
 
 The goal of this project is to create a **modern, clean, and high-converting laundromat website** that:
@@ -20,6 +40,7 @@ The goal of this project is to create a **modern, clean, and high-converting lau
 * **Lucide React** – Modern icon library
 * **Swiper.js** – Carousel/slider for testimonials
 
+---
 
 ## 🚀 Features
 
@@ -71,7 +92,7 @@ http://localhost:3000
 * 💳 Payment integration
 * 🌙 Dark mode toggle
 
-
+---
 
 ## 🙌 Credits
 
