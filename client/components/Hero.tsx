@@ -191,7 +191,7 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "fra
 import { ArrowRight, Clock3, Shirt, Sparkles, Star, CheckCircle, Phone, Zap, Shield, Truck } from "lucide-react";
 
 const bubbles = [
-  { size: 130, left: "1%",  top: "10%", dur: 5.0, delay: 0.0, xA: 24,  color: "rgba(93,131,255,0.50)"  },
+  { size: 130, left: "1%",  top: "50%", dur: 5.0, delay: 0.0, xA: 24,  color: "rgba(93,131,255,0.50)"  },
   { size: 70,  left: "8%",  top: "55%", dur: 4.2, delay: 0.6, xA: -18, color: "rgba(120,180,255,0.45)" },
   { size: 45,  left: "16%", top: "78%", dur: 3.8, delay: 1.1, xA: 14,  color: "rgba(160,210,255,0.40)" },
   { size: 90,  left: "22%", top: "8%",  dur: 5.6, delay: 0.3, xA: 20,  color: "rgba(93,131,255,0.42)"  },
@@ -232,7 +232,6 @@ export default function Hero() {
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
 
-  // Smooth spring scroll values
   const smoothScroll = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
 
   const contentY  = useTransform(smoothScroll, [0, 1], ["0%", "20%"]);
@@ -371,10 +370,10 @@ export default function Hero() {
               backdropFilter: "blur(2px)",
             }}
             animate={{
-              y:       [0, -30, -10, -36, -8, 0],
-              x:       [0, b.xA, b.xA * 0.3, b.xA * 0.85, b.xA * 0.5, 0],
-              scale:   [1, 1.15, 1.06, 1.13, 1.04, 1],
-              opacity: [0.65, 1.0, 0.75, 0.95, 0.80, 0.65],
+              y: [200, -200],
+              x: [0, b.xA],
+              scale: [1, 1.1, 1],
+              opacity: [0.7, 1, 0.7],
             }}
             transition={{ duration: b.dur, delay: b.delay, repeat: Infinity, ease: "easeInOut", repeatType: "loop" }}
           />
