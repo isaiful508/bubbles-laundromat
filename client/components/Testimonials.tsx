@@ -287,7 +287,7 @@ export default function Testimonials() {
                 style={{
                   background: "rgba(255,255,255,0.88)",
                   backdropFilter: "blur(24px)",
-                  border: `1.5px solid ${t.border ?? t.color}44`,
+                  border: `1.5px solid ${t.color}44`,
                   boxShadow: `0 30px 80px ${t.glow.replace("0.5","0.20")}, 0 0 0 1px rgba(255,255,255,0.7) inset`,
                   transformStyle: "preserve-3d",
                 }}

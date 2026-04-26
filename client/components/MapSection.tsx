@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { MapPin, Clock, Phone, Car, Wifi, CreditCard } from "lucide-react";
 
 const amenities = [
@@ -16,8 +16,8 @@ const hours = [
   { days: "Sunday", time: "7:00 AM – 9:00 PM" },
 ];
 
-// Animation Variants
-const container = {
+// ✅ Properly typed animation variants
+const container: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -26,26 +26,26 @@ const container = {
   },
 };
 
-const leftItem = {
+const leftItem: Variants = {
   hidden: { opacity: 0, x: -80 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.8, 0.25, 1],
+      ease: "easeOut",
     },
   },
 };
 
-const rightItem = {
+const rightItem: Variants = {
   hidden: { opacity: 0, x: 80 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.8, 0.25, 1],
+      ease: "easeOut",
     },
   },
 };
@@ -102,9 +102,7 @@ export default function MapSection() {
                   <MapPin className="w-5 h-5 text-cyan-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy-800 mb-1">
-                    Address
-                  </h3>
+                  <h3 className="font-semibold text-navy-800 mb-1">Address</h3>
                   <p className="text-navy-500 text-sm leading-relaxed">
                     815 W Britton Rd<br />
                     Oklahoma City, OK 73114<br />
@@ -136,9 +134,7 @@ export default function MapSection() {
                   <Phone className="w-5 h-5 text-indigo-500" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-navy-800 mb-1">
-                    Phone
-                  </h3>
+                  <h3 className="font-semibold text-navy-800 mb-1">Phone</h3>
                   <a
                     href="tel:+14057488990"
                     className="text-navy-500 text-sm hover:text-cyan-600"
@@ -167,10 +163,7 @@ export default function MapSection() {
 
               <div className="space-y-2.5">
                 {hours.map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between text-sm"
-                  >
+                  <div key={i} className="flex justify-between text-sm">
                     <span className="text-navy-500">{h.days}</span>
                     <span className="font-medium text-navy-700">
                       {h.time}
@@ -196,9 +189,7 @@ export default function MapSection() {
               }}
               className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 cursor-pointer"
             >
-              <h3 className="font-semibold text-navy-800 mb-4">
-                Amenities
-              </h3>
+              <h3 className="font-semibold text-navy-800 mb-4">Amenities</h3>
 
               <div className="grid grid-cols-2 gap-3">
                 {amenities.map(({ icon: Icon, label }, i) => (
@@ -214,7 +205,7 @@ export default function MapSection() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT SIDE (MAP) */}
+          {/* RIGHT SIDE */}
           <motion.div
             variants={rightItem}
             className="lg:col-span-3 rounded-3xl overflow-hidden shadow-xl border border-gray-100"
