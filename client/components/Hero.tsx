@@ -229,7 +229,6 @@ export default function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
   const fadeOut = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Count-up animation
   useEffect(() => {
     const duration = 2000;
     const steps = 60;
@@ -246,8 +245,19 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    if (videoRef.current) videoRef.current.playbackRate = 0.7;
-  }, [videoReady]);
+    const v = videoRef.current;
+    if (!v) return;
+    const tryPlay = () => {
+      v.play().catch(() => {
+        setTimeout(() => v.play().catch(console.warn), 1000);
+      });
+    };
+    if (v.readyState >= 2) {
+      tryPlay();
+    } else {
+      v.addEventListener("canplay", tryPlay, { once: true });
+    }
+  }, []);
 
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#030818]">
@@ -256,15 +266,27 @@ export default function Hero() {
       <motion.div style={{ y: videoY }} className="absolute inset-0 z-0 scale-110 origin-center">
         <video
           ref={videoRef}
-          autoPlay muted loop playsInline
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
           onCanPlay={() => setVideoReady(true)}
+          onEnded={(e) => {
+            e.currentTarget.currentTime = 0;
+            e.currentTarget.play();
+          }}
           className="h-full w-full object-cover"
+          style={{ willChange: "transform" }}
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
         </video>
+
         <AnimatePresence>
           {!videoReady && (
-            <motion.div exit={{ opacity: 0 }} transition={{ duration: 1.5 }}
+            <motion.div
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
               className="absolute inset-0"
               style={{ background: "linear-gradient(135deg,#030818 0%,#0a1535 40%,#0d1f5e 70%,#0a1535 100%)" }}
             />
