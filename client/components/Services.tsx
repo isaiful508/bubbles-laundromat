@@ -126,8 +126,8 @@ export default function Services() {
               <motion.div
                 key={i}
                 variants={cardVariants}
-                className="relative group bg-white rounded-3xl p-8 card-hover border border-gray-100 overflow-hidden"
-                style={{ boxShadow: "0 4px 30px rgba(10,22,40,0.06)" }}
+                className="relative group bg-white rounded-3xl p-8 overflow-hidden"
+                style={{ boxShadow: "0 4px 30px rgba(10,22,40,0.06)", border: "2px solid rgba(200,200,200,0.2)" }} whileHover={{ scale: 1.06, rotate: 1, borderColor: "rgba(0,150,255,0.8)", boxShadow: "0 0 30px rgba(0,150,255,0.6)", transition: { duration: 0.3 } }}
               >
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
