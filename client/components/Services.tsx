@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, useScroll, useTransform } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Shirt, RefreshCw, Wind, Zap, Sparkles, Package } from "lucide-react";
@@ -69,8 +69,8 @@ const services = [
 ];
 
 const containerVariants: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.15, duration: 0.6 } },
 };
 
 const cardVariants: Variants = {
@@ -84,10 +84,13 @@ const cardVariants: Variants = {
 
 export default function Services() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const headingY = useTransform(scrollYProgress, [0, 0.2], [30, 0]);
+  const headingOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
   return (
-    <section id="services" className="py-24 lg:py-32 bg-[#F8FFFE] relative overflow-hidden">
+    <section id="services" ref={ref} className="py-24 lg:py-32 bg-[#F8FFFE] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04] rounded-full"
         style={{ background: "radial-gradient(circle, #06B6D4, transparent 70%)", transform: "translate(30%, -30%)" }} />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.03] rounded-full"
@@ -95,10 +98,7 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7 }}
+          style={{ y: headingY, opacity: headingOpacity }}
           className="text-center mb-16"
         >
           <div className="section-tag mb-4">Our Services</div>
@@ -114,10 +114,10 @@ export default function Services() {
         </motion.div>
 
         <motion.div
-          ref={ref}
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {services.map((service, i) => {
